@@ -18,8 +18,8 @@ def load_sample_prompts():
 
 config = load_config()
 
-st.set_page_config(page_title="PII Masking + Gemini + Unmasking", layout="wide")
-st.title("🔐 PII Masking → 🤖 Gemini → 🔓 Unmasking")
+st.set_page_config(page_title="Prompt Anonymiser", layout="wide")
+st.title("Prompt → 🔐 PII Masking → 🤖 LLM → 🔓 Unmasking → Response")
 
 
 
