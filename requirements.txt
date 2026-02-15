@@ -1,0 +1,6 @@
+streamlit
+presidio-analyzer
+presidio-anonymizer
+spacy
+google-generativeai
+pyyaml

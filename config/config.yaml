@@ -1,0 +1,17 @@
+GEMINI_API_KEY: "YOUR_KEY_HERE123"
+MODEL_NAME: "gemini-1.5-pro"
+USE_LLM: false
+
+# You can extend this later
+PII_CATEGORIES_ENABLED:
+  PERSON: true
+  EMAIL_ADDRESS: true
+  PHONE_NUMBER: true
+  CREDIT_CARD: true
+  IP_ADDRESS: true
+  LOCATION: true
+  CLIENT_ID: true
+  ACCOUNT_REFERENCE: true
+  ORGANIZATION: true
+  DATE_TIME: false
+  DOMAIN_NAME: false
