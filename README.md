@@ -189,38 +189,8 @@ They are automatically loaded into the analyzer at startup.
 
 ---
 
-## 🧪 Testing
-
-Run tests with:
-
-```bash
-pytest
-```
-
-Tests cover:
-- PII detection  
-- Masking/unmasking consistency  
-- Recognizer accuracy  
-- LLM pipeline integration  
-
----
-
-## 🗺️ Roadmap
-
-- Add support for multiple LLM providers  
-- Add audit logging for compliance  
-- Add batch document processing  
-- Add UI‑based config editing  
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome.  
 If you add new recognizers or pipeline components, please include tests and documentation.
 
----
-
-## 📜 License
-
-MIT License
