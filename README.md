@@ -1,6 +1,6 @@
 # 🔐 Privacy‑Preserving LLM Pipeline  
 ### Secure Prompt → PII Masking → LLM → Unmasking → Response  
-Built with **Presidio**, **custom recognizers**, **Google Gemini**, and a **Streamlit UI**
+Built with **Microsoft Presidio**, **custom recognizers**, **Google Gemini**, and a **Streamlit UI**
 
 This project implements a fully privacy‑preserving LLM orchestration pipeline. It ensures that **no raw PII ever reaches the LLM**, thanks to a masking layer powered by Microsoft Presidio and custom dictionary recognizers.  
 A Streamlit UI provides a transparent, interactive chat experience with visibility into every stage of the pipeline.
@@ -11,18 +11,30 @@ A Streamlit UI provides a transparent, interactive chat experience with visibili
 
 ```
 .
-├── agents/                 # Orchestration logic (mask → LLM → unmask)
-├── config/                 # YAML config (API keys, model, PII toggles)
-│   └── config.yaml
-├── recognizers/            # Custom Presidio recognizers
-├── ui/                     # Streamlit UI components
-├── README.md
+├── agents/                         # Orchestration logic
+│   ├── base_agent.py
+│   ├── llm_agent.py
+│   ├── masking_agent.py
+│   ├── orchestrator_agent.py
+│   └── unmask_agent.py
+│
+├── config/
+│   └── config.yaml                 # API keys, model, PII toggles
+│
+├── recognizers/
+│   └── custom_dictionary_recognizer.py   # Custom Presidio recognizer
+│
+├── ui/
+│   ├── color_mapper.py
+│   └── streamlit_app.py            # Streamlit UI entry point
+│
+├── sample_prompts.json
 ├── requirements.txt
-└── sample_prompts.json
+└── README.md
 ```
 
 This structure cleanly separates concerns:  
-- **agents** handles the pipeline logic  
+- **agents** handles the masking → LLM → unmasking pipeline  
 - **config** centralizes runtime settings  
 - **recognizers** extends PII detection  
 - **ui** provides the interactive interface  
@@ -105,8 +117,8 @@ This ensures **compliant, privacy‑preserving AI interactions**.
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-url>
-cd <your-project-folder>
+git clone https://github.com/mohanraoalladi/Prompt_masking_advanced
+cd Prompt_masking_advanced
 ```
 
 ### 2. Create a virtual environment
@@ -128,14 +140,12 @@ Create a `.env` file:
 GEMINI_API_KEY=your_key_here
 ```
 
-The YAML config will read this automatically if your loader supports env overrides.
-
 ---
 
 ## ▶️ Running the App
 
 ```bash
-streamlit run ui/app.py
+streamlit run ui/streamlit_app.py
 ```
 
 The UI will open at:
@@ -151,7 +161,7 @@ http://localhost:8501
 Place your custom Presidio recognizers in:
 
 ```
-recognizers/
+recognizers/custom_dictionary_recognizer.py
 ```
 
 These may include:
@@ -213,4 +223,4 @@ If you add new recognizers or pipeline components, please include tests and docu
 
 ## 📜 License
 
-MIT License (or your preferred license)
+MIT License
